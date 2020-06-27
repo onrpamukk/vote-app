@@ -1,0 +1,40 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1 !important;
+    background: #eee !important;
+}
+
+.p-none {
+    padding: none !important;
+}
+
+.p66 {
+    padding: 1rem 13rem;
+}
+
+.p67 {
+    padding: 1rem 14rem;
+}
+
+.btn-transparent {
+    background: none !important;
+}
+
+.border-none {
+    border: none !important;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}

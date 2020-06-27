@@ -1,0 +1,16 @@
+{
+    "t_APP": {
+        "t_LANGUAGE": "t_APP.t_LANGUAGE",
+        "t_TR": "t_APP.t_TR",
+        "t_EN": "t_APP.t_EN",
+        "t_FOOTER_INFO": "t_APP.t_FOOTER_INFO",
+        "t_BACK": "t_APP.t_BACK",
+        "t_MIN_SHORT": "t_APP.t_MIN_SHORT"
+    },
+    "t_G_INFO": {
+        "t_LOADING": "t_G_INFO.t_LOADING",
+        "t_RECEİVED_ERROR": "t_G_INFO.t_RECEİVED_ERROR",
+        "t_RETRY": "t_G_INFO.t_RETRY",
+        "t_EMPTY_DATA": "t_G_INFO.t_EMPTY_DATA"
+    }
+}

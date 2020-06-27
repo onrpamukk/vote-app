@@ -1,0 +1,28 @@
+.createvotecmp-container{
+    background: #fff;
+    padding: .6rem .5rem;
+    border-radius: 6px;
+    align-items: center;
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.05);
+    border: 1px solid rgba(0,0,0,.1);
+}
+.createvotecmp-container:hover{
+    text-decoration: none;
+}
+.createvotecmp-container .createvotecmp-plus{
+    border: 1px solid rgba(0,0,0,.1);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: .7rem 1rem;
+    border-radius: 4px;
+}
+.createvotecmp-container .createvotecmp-plus img{
+    width: 1rem;
+}
+.createvotecmp-container .createvotecmp-title h4{
+    color: #000;
+    text-transform: uppercase;
+    margin-bottom: 0rem;
+    font-size: 1.3rem;
+}
