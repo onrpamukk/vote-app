@@ -56,7 +56,7 @@ class NewVote extends React.Component<TProps, TState> {
 
     handleSubmitForm = (e: React.FormEvent) => {
         e.preventDefault()
-        if (this.state.voteName !== '') {
+        if (this.state.voteName !== '' && this.state.voteLink !== '') {
             this.props.createVote({
                 id: uuidv4(),
                 voteName: this.state.voteName,
@@ -70,6 +70,8 @@ class NewVote extends React.Component<TProps, TState> {
                 votePoints: 0
             });
             TMService.showSuccessMessage(this.state.voteName, "added");
+        }else{
+            TMService.showWarnMessage(this.state.voteName, "Fields cannot be empty");
         }
     }
 
@@ -97,11 +99,11 @@ class NewVote extends React.Component<TProps, TState> {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="linkName">Link name</label>
-                                <input type="text" className="form-control form-control-lg" placeholder="Link name" value={voteName} onChange={this.handleInputNameChange} />
+                                <input type="text" className="form-control form-control-lg" placeholder="e.g Alphabet" value={voteName} onChange={this.handleInputNameChange} />
                             </div>
                             <div className="form-group">
                                 <label htmlFor="linkUrl">Link URL</label>
-                                <input type="text" className="form-control form-control-lg" placeholder="http://abc.xyz" value={voteLink} onChange={this.handleInputLinkChange} />
+                                <input type="text" className="form-control form-control-lg" placeholder="e.g http://abc.xyz" value={voteLink} onChange={this.handleInputLinkChange} />
                             </div>
                             <div className="form-row align-items-center m-0 justify-content-end">
                                 <button type="submit" className="btn btn-dark btn-lg" style={{ borderRadius: "10px", padding: ".5rem 2rem" }} onClick={this.handleSubmitForm}>

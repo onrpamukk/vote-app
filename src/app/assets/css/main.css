@@ -57,7 +57,7 @@ html {
 }
 
 .p-growl-message-warn {
-    background: orange !important;
+    background: #f8d7da !important;
 }
 .p-growl-icon-close {
     display: none !important;

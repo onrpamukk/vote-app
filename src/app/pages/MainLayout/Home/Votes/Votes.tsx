@@ -66,6 +66,9 @@ class Votes extends React.Component<any, ISTATE> {
                                     />
                                 ))
                             }
+                            {
+                                votes.length === 0 && <div className="alert alert-danger">Please add new vote!</div>
+                            }
                         </div>
                     </div>
                 </div>
