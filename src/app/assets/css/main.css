@@ -1,3 +1,5 @@
+@import "../../../../node_modules/primereact/resources/primereact.min.css";
+@import "../../../../node_modules/primeicons/primeicons.css";
 * {
     margin: 0px;
     padding: 0px;
@@ -36,6 +38,27 @@ html {
 .dropdown:hover .dropdown-menu {
     display: block;
 }
-.b-shadow{
-    box-shadow: 0 4px 20px 0 rgba(0,0,0,.05);
+
+.b-shadow {
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .05);
 }
+
+.p-growl.p-growl-topright{
+    left: 43% !important;
+    top: 10%;
+    z-index: 9000 !important;
+}
+
+.p-growl-message-success {
+    background: rgb(102, 255, 153, .7) !important;
+    border: 1px solid darkgreen;
+    border-radius: 6px;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .05);
+}
+
+.p-growl-message-warn {
+    background: orange !important;
+}
+.p-growl-icon-close {
+    display: none !important;
+  }

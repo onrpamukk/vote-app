@@ -13,6 +13,7 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux'
 import { Footer } from '../../../../components/Footer';
 import { Header } from '../../../../components/Header';
+import { TMService } from '../../../../services/toaster-message.service';
 
 
 
@@ -59,20 +60,13 @@ class Votes extends React.Component<any, ISTATE> {
                                         votePoints={vote.votePoints}
                                         voteName={vote.voteName}
                                         voteLink={vote.voteLink}
-                                        onDelete={() => deleteVote(vote.id)}
+                                        onDelete={() => deleteVote(vote.id) ? TMService.showSuccessMessage(vote.voteName, "removed") : ""}
                                         onIncrement={() => incrementVote(vote.id)}
                                         onDecrement={() => decrementVote(vote.id)}
                                     />
                                 ))
                             }
                         </div>
-                        {/*  <Dialog
-                    header="asdasd"
-                    visible={this.state.dialog.visible} style={{width: '50vw'}} modal={true}
-                    onHide={() => this.setState({dialog: {visible: false, userFullname: ""}})}>
-                    <h5><span className="">Succes</span></h5>
-                    <div className="w-100 mb-3 text-danger" style={{fontWeight: 'bold'}}>{this.state.dialog.userFullname}</div>
-                </Dialog> */}
                     </div>
                 </div>
                 <Footer />

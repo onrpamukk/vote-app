@@ -13,6 +13,9 @@ import {
   newvote as NewVote,
   votes as Votes
 } from './app/pages/MainLayout/Home'
+import { Growl } from 'primereact/growl';
+import { setGrowlRef } from './app/services/toaster-message.service'
+
 
 const pages: RouteProps[] = [
   {
@@ -31,6 +34,7 @@ const App: React.FC = () => {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
+      <Growl ref={(_growlRef) => setGrowlRef(_growlRef)} />
         <Router>
           <Switch>
             {

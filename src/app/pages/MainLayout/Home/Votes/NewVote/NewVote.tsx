@@ -11,6 +11,7 @@ import { RootState } from '../../../../../store/reducers';
 import { RootActions } from '../../../../../store/types/_root';
 import { IRS_VOTES } from '../../../../../store/interfaces';
 import { createVote } from '../../../../../store/actions/actionVotes';
+import { TMService } from '../../../../../services/toaster-message.service';
 
 
 
@@ -67,7 +68,8 @@ class NewVote extends React.Component<TProps, TState> {
                 voteName: '',
                 voteLink: '',
                 votePoints: 0
-            })
+            });
+            TMService.showSuccessMessage(this.state.voteName, "added");
         }
     }
 
