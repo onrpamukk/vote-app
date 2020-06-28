@@ -11,6 +11,8 @@ import { voteId } from '../../../../store/interfaces';
 import { toggleVote } from '../../../../store/actions/actionVotes';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux'
+import { Footer } from '../../../../components/Footer';
+import { Header } from '../../../../components/Header';
 
 
 const mapStateToProps = ({ vote }: RootState) => ({ vote })
@@ -27,7 +29,9 @@ class Votes extends React.Component<any, any> {
             vote: { votes }
         } = this.props
         return (
-            <div className="d-flex flex-row justify-content-center mt-5">
+           <div className="homecmp-wrapper">
+               <Header />
+                <div className="d-flex flex-row justify-content-center mt-5">
                 <div className="col-md-3 col-sm-3">
                     <Link to="/new-vote" className="d-flex flex-row createvotecmp-container">
                         <div className="createvotecmp-plus">
@@ -54,6 +58,8 @@ class Votes extends React.Component<any, any> {
                    </div>
                 </div>
             </div>
+            <Footer />
+           </div>
         )
     }
 }
