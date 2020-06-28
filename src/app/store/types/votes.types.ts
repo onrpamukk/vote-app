@@ -5,4 +5,5 @@ export const TYPES_LIST_VOTES = {
 }
 
 export const CREATE_VOTE = 'CREATE_VOTE'
+export const TOGGLE_VOTE = 'TOGGLE_VOTE'
 export const DELETE_VOTE = 'DELETE_VOTE'

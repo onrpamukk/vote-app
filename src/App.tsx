@@ -12,12 +12,13 @@ import { store, persistor } from './app/store/store'
 import { HomePage } from './app/pages/MainLayout/Home/HomePage'
 import {
   newvote as NewVote,
+  votes as Votes
 } from './app/pages/MainLayout/Home'
 
 const pages: RouteProps[] = [
   {
     path: '/',
-    component: HomePage,
+    component: Votes,
     exact: true
   },
   {
