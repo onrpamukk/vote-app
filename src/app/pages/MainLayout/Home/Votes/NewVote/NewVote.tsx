@@ -9,7 +9,7 @@ import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import { RootState } from '../../../../../store/reducers';
 import { RootActions } from '../../../../../store/types/_root';
-import { IRS_VOTES, voteId } from '../../../../../store/interfaces';
+import { IRS_VOTES } from '../../../../../store/interfaces';
 import { createVote } from '../../../../../store/actions/actionVotes';
 
 
@@ -20,7 +20,8 @@ const mapDispatchToProps = (dispatch: Dispatch<RootActions>) => ({
 })
 
 type TState = {
-    [name: string]: string
+    [name: string]: any
+
 }
 
 type TProps =
@@ -34,7 +35,8 @@ class NewVote extends React.Component<TProps, TState> {
         this.handleInputLinkChange = this.handleInputLinkChange.bind(this);
         this.state = {
             voteName: '',
-            voteLink: ''
+            voteLink: '',
+            votePoints: 0
         };
     }
 
@@ -57,11 +59,14 @@ class NewVote extends React.Component<TProps, TState> {
             this.props.createVote({
                 id: uuidv4(),
                 voteName: this.state.voteName,
-                voteLink: this.state.voteLink
+                voteLink: this.state.voteLink,
+                votePoints: this.state.votePoints
+
             })
             this.setState({
                 voteName: '',
-                voteLink: ''
+                voteLink: '',
+                votePoints: 0
             })
         }
     }

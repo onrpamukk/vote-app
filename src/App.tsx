@@ -9,7 +9,6 @@ import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 
 import { store, persistor } from './app/store/store'
-import { HomePage } from './app/pages/MainLayout/Home/HomePage'
 import {
   newvote as NewVote,
   votes as Votes
@@ -24,7 +23,7 @@ const pages: RouteProps[] = [
   {
     path: '/new-vote',
     component: NewVote,
-    exact:true
+    exact: true
   }
 ]
 

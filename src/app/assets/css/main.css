@@ -8,11 +8,9 @@
 body,
 html {
     height: 100%;
-    font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
     font-weight: normal;
     line-height: 1 !important;
-    background: #eee !important;
 }
 
 .p-none {
@@ -37,4 +35,7 @@ html {
 
 .dropdown:hover .dropdown-menu {
     display: block;
+}
+.b-shadow{
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.05);
 }
