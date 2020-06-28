@@ -11,11 +11,13 @@ const isExistKeyOrThrow = (key: string) => {
 /* ----------- * - * ----------- */
 
 const STORAGE_KEYS = {
-    LANGUAGE: "LANGUAGE"
+    LANGUAGE: 'LANGUAGE',
+    VOTES: 'VOTES'
 }
 
 const STORAGE_ITEM_TYPES = {
-    [STORAGE_KEYS.LANGUAGE]: "string"
+    [STORAGE_KEYS.LANGUAGE]: 'string',
+    [STORAGE_KEYS.VOTES]: 'object'
 }
 
 const getStorageItemType = (key: string): string | null => {

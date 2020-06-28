@@ -1,0 +1,1 @@
+export { default as newvote } from './Votes/NewVote/NewVote';

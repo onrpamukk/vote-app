@@ -4,7 +4,6 @@ import { environment } from '../environment';
 
 var axiosInstance: AxiosInstance;
 
-
 export const initAxios = () => {
     axiosInstance = Axios.create({
         baseURL: environment.baseApiURL,
@@ -34,19 +33,19 @@ export const initAxios = () => {
 }
 
 const httpGetFNC = (URL: string) => {
-    return axiosInstance.get(URL).catch(handleError)
+        return axiosInstance.get(URL).catch(handleError)
 }
 
 const httpPostFNC = (URL: string, body?: any) => {
-    return axiosInstance.post(URL, body && typeof body === 'object' ? JSON.stringify(body) : body).catch(handleError);
+        return axiosInstance.post(URL, body && typeof body === 'object' ? JSON.stringify(body) : body).catch(handleError);
 }
 
 const httpPutFNC = (URL: string, body: any) => {
-    return axiosInstance.put(URL, JSON.stringify(body)).catch(handleError);
+        return axiosInstance.put(URL, JSON.stringify(body)).catch(handleError);
 }
 
 const httpDeleteFNC = (URL: string) => {
-    return axiosInstance.delete(URL).catch(handleError)
+        return axiosInstance.delete(URL).catch(handleError)
 }
 
 const handleError = (err: any) => {

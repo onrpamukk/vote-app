@@ -1,4 +1,3 @@
-import {TRANSLATE_REFS, TranslationService} from "../translation";
 
 var growlRef: any = null;
 var isGrowRendered: boolean = false;
@@ -23,7 +22,7 @@ const showSuccessMessage = (summary: string, detailTKeyword: string) => {
     if (!isGrowRendered)
         return;
 
-    const detail = TranslationService.translateStr(detailTKeyword)
+    const detail = detailTKeyword
     showMessage({ severity: MESSAGE_TYPES.SUCCESS, summary, detail: detail === '' ? detailTKeyword : detail })
 };
 
@@ -31,7 +30,7 @@ const showInfoMessage = (summary: string, detailTKeyword: string) => {
     if (!isGrowRendered)
         return;
 
-    const detail = TranslationService.translateStr(detailTKeyword)
+    const detail = detailTKeyword
     showMessage({ severity: MESSAGE_TYPES.INFO, summary, detail: detail === '' ? detailTKeyword : detail })
 };
 
@@ -39,7 +38,7 @@ const showWarnMessage = (summary: string, detailTKeyword: string) => {
     if (!isGrowRendered)
         return;
 
-    const detail = TranslationService.translateStr(detailTKeyword)
+    const detail = detailTKeyword
     showMessage({ severity: MESSAGE_TYPES.WARN, summary, detail: detail === '' ? detailTKeyword : detail })
 };
 
@@ -47,7 +46,7 @@ const showErrorMessage = (summary: string, detailTKeyword: string) => {
     if (!isGrowRendered)
         return;
 
-    const detail = TranslationService.translateStr(detailTKeyword)
+    const detail = detailTKeyword
     showMessage({ severity: MESSAGE_TYPES.ERROR, summary, detail: detail === '' ? detailTKeyword : detail })
 };
 
@@ -57,7 +56,7 @@ const showWarnMessageBE = (beErrorKey: string, beDefaultError: string) => {
 };
 
 const showAlertMessage = (title: string,detail :string) => {
-    let message = TranslationService.translateStr(detail);
+    let message = detail
     showMessage({ severity: MESSAGE_TYPES.INFO, summary: title, detail: message})
 };
 

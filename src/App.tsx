@@ -1,32 +1,53 @@
-import React from 'react';
-import { HomePage } from './app/pages/MainLayout/Home/HomePage';
-import { initAxios } from './app/api-services/base.api.service';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { createStoreInstanceFNC } from './app/store/store';
-import { NewVote } from './app/pages/MainLayout/Home/Votes/NewVote';
+import React from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  RouteProps
+} from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react'
 
-export default class App extends React.Component<any, any>{
-  constructor(props) {
-    super(props);
-    try {
-      initAxios();
-      createStoreInstanceFNC();
-    } catch (error) {
-      console.log('GLOBAL-ERROR-HANDLING');
-    }
+import { store, persistor } from './app/store/store'
+import { HomePage } from './app/pages/MainLayout/Home/HomePage'
+import {
+  newvote as NewVote,
+} from './app/pages/MainLayout/Home'
+
+const pages: RouteProps[] = [
+  {
+    path: '/',
+    component: HomePage,
+    exact: true
+  },
+  {
+    path: '/new-vote',
+    component: NewVote,
+    exact:true
   }
+]
 
-  render() {
-    return (
-      <div className="App">
-        <BrowserRouter>
+const App: React.FC = () => {
+  return (
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <Router>
           <Switch>
-            <Route exact={true} path="/" component={HomePage} />
-            <Route exact={true} path="/new-vote" component={NewVote} />
+            {
+              pages.map((page, i) => (
+                <Route
+                  key={i}
+                  exact={page.exact}
+                  path={page.path}
+                  component={page.component}
+                />
+              ))
+            }
           </Switch>
-        </BrowserRouter>
-      </div>
-    );
-  }
+        </Router>
+      </PersistGate>
+    </Provider>
+  )
 }
 
+export default App

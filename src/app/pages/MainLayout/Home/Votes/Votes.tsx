@@ -2,10 +2,11 @@ import React from 'react';
 import './Votes.css'
 import { Link } from 'react-router-dom';
 
-export class Votes extends React.Component {
+export class Votes extends React.Component<any,any> {
 
+    
+    
     render() {
-
         return (
             <div className="d-flex flex-row justify-content-center mt-5">
                 <div className="col-md-3 col-sm-3">

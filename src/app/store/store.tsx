@@ -1,15 +1,32 @@
-import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
-import thunk from 'redux-thunk';
+import { createStore, compose } from 'redux'
+import {
+  persistStore,
+  persistReducer,
+  PersistConfig
+} from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
 
-import { combineReducer, InitialState } from './combineReducers';
-import { isEnvLocal } from '../environment';
+import reducer, { RootState } from './reducers'
 
-declare var window: any;
-export var Store: any = {};
-
-export const createStoreInstanceFNC = (): any => {
-    const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-    const store = isEnvLocal() ? createStore(combineReducers(combineReducer), InitialState, composeEnhancers(applyMiddleware(thunk))) : createStore(combineReducers(combineReducer), InitialState, applyMiddleware(thunk));
-    Store = store;
-    return Store;
+declare global {
+  interface Window {
+    __REDUX_DEVTOOLS_EXTENSION__?: typeof compose
+  }
 }
+
+const persistConfig: PersistConfig<RootState> = {
+  key: 'root',
+  storage,
+  whitelist: ['vote']
+}
+const persistedReducer = persistReducer(persistConfig, reducer)
+
+export const store = createStore<any,any,any,any>(
+  persistedReducer,
+  process.env.NODE_ENV === 'development'
+    ? window.__REDUX_DEVTOOLS_EXTENSION__ &&
+      window.__REDUX_DEVTOOLS_EXTENSION__()
+    : undefined
+)
+
+export const persistor = persistStore(store)

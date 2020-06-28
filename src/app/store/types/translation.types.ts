@@ -1,3 +1,0 @@
-export const TYPES_TRANSLATION = {
-    SET_LANGUAGE: 'SET_LANGUAGE'
-}
