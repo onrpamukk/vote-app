@@ -15,6 +15,7 @@ import {
 } from './app/pages/MainLayout/Home'
 import { Growl } from 'primereact/growl';
 import { setGrowlRef } from './app/services/toaster-message.service'
+import { ApprovalModal } from './app/components/DeleteModal/DeleteModal'
 
 
 const pages: RouteProps[] = [
@@ -35,6 +36,7 @@ const App: React.FC = () => {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
       <Growl ref={(_growlRef) => setGrowlRef(_growlRef)} />
+      <ApprovalModal />
         <Router>
           <Switch>
             {

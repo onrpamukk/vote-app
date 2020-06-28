@@ -14,6 +14,9 @@ import { Dispatch } from 'redux'
 import { Footer } from '../../../../components/Footer';
 import { Header } from '../../../../components/Header';
 import { TMService } from '../../../../services/toaster-message.service';
+import { paging as Pagination } from '../../../../components/Pagination'
+import { AMService } from '../../../../services/approval-modal.service';
+
 
 
 
@@ -27,14 +30,39 @@ const mapDispatchToProps = (dispatch: Dispatch<RootActions>) => ({
 
 
 
-interface ISTATE {
-
+interface IPROPS {
+    postsPerPage:number
+    currentPage:number
+    votes:any[]
 }
-class Votes extends React.Component<any, ISTATE> {
+
+
+
+class Votes extends React.Component<any, IPROPS> {
+    constructor(props: any) {
+        super(props);
+        this.state = {
+            currentPage: 1,
+            postsPerPage:5,
+            votes:[]
+        };
+    }
+    
 
     render() {
-        const { vote: { votes }, deleteVote, incrementVote, decrementVote } = this.props
-        // const {dialog} = this.state;
+        const { vote: { votes }, deleteVote, incrementVote, decrementVote,currentPage, postsPerPage, } = this.props;
+
+        const indexOfLastPost = currentPage * postsPerPage;
+        const indexOfFirstPost = indexOfLastPost - postsPerPage;
+        const currentPosts = votes.slice(indexOfFirstPost, indexOfLastPost);
+
+        const paginate = pagenum => this.setState({ currentPage: pagenum })
+
+        const nextPage = () => this.setState({ currentPage: currentPage + 1  })
+
+        const prevPage = () => this.setState({ currentPage: currentPage - 1  })
+
+
 
         return (
             <div className="homecmp-wrapper">
@@ -69,6 +97,7 @@ class Votes extends React.Component<any, ISTATE> {
                             {
                                 votes.length === 0 && <div className="alert alert-danger">Please add new vote!</div>
                             }
+                            <Pagination postsPerPage={postsPerPage} totalPosts={votes.length} paginate={paginate} nextPage={nextPage} prevPage={prevPage}  />
                         </div>
                     </div>
                 </div>
