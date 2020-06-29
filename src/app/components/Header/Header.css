@@ -1,0 +1,26 @@
+.headercmp-wrapper{
+    box-shadow: 0 4px 20px 0 rgba(0,0,0,.05);
+}
+.headercmp-brand a{
+    color: orange;
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+.headercmp-brand a:hover{
+    text-decoration: none;
+    color: orange;
+}
+.vote-link{
+    font-weight: bolder;
+    font-size: 1.4rem;
+}
+.vote-name{
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 1.4rem;
+}
+.vote-challenge{
+    font-weight: 400;
+    font-size: 1.4rem;
+    margin-left: .3rem;
+}

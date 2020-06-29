@@ -1,0 +1,94 @@
+.votecmp-wrapper {
+    display: flex;
+    flex-direction: row;
+    padding: .2rem .3rem;
+    cursor: pointer;
+}
+
+.votecmp-wrapper:hover {
+    background: #f8f8f8;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .05);
+    border: 1px solid rgba(0, 0, 0, .1);
+}
+
+.votecmp-wrapper:hover .votecmp-delete{
+    display: block;
+}
+
+.votecmp-wrapper .votecmp-delete{
+    width: 20px;
+    position: absolute;
+    right: 20px;
+    margin-top: .1rem;
+    display: none;
+}
+
+.votecmp-wrapper .votecmp-delete img{
+    width: 100%;
+}
+
+.votecmp-wrapper .votecmp-point-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    border-radius: 4px;
+    padding: 1.4rem .3rem;
+    border: 1px solid rgba(0, 0, 0, .1);
+}
+
+.votecmp-wrapper .votecmp-right-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.votecmp-wrapper .votecmp-right-container .votecmp-name {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: .25rem;
+}
+
+.votecmp-wrapper .votecmp-right-container .votecmp-link {
+    color: rgba(0, 0, 0, .5);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.votecmp-wrapper .votecmp-right-container .votecmp-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.votecmp-wrapper .votecmp-right-container .votecmp-buttons button {
+    background: transparent;
+    border: none;
+}
+
+.votecmp-wrapper .votecmp-right-container .votecmp-buttons button:focus {
+    border-color: none;
+    box-shadow: transparent;
+    border: none;
+    outline: none;
+}
+
+.votecmp-wrapper .votecmp-right-container .votecmp-buttons .votecmp-buttons-up {
+    background: url("../../assets/icons/up.svg") no-repeat;
+    background-size: 14px;
+    background-position-y: 2px;
+}
+
+.votecmp-wrapper .votecmp-right-container .votecmp-buttons .votecmp-buttons-up .btn-up {
+    margin-left: 1.3rem;
+}
+
+.votecmp-wrapper .votecmp-right-container .votecmp-buttons .votecmp-buttons-down {
+    background: url("../../assets/icons/down.svg") no-repeat;
+    background-size: 14px;
+    background-position-y: 2px;
+}
+
+.votecmp-wrapper .votecmp-right-container .votecmp-buttons .votecmp-buttons-down .btn-down {
+    margin-left: 1.3rem;
+}

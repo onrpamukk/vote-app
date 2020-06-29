@@ -1,0 +1,14 @@
+.vote-back{
+    font-weight: 600;
+    align-items: center;
+    color: #000;
+}
+.vote-back:hover{
+    text-decoration: none;
+}
+.back-icon{
+    background: url("../../../../../assets/icons/back.svg") no-repeat;
+    background-size: 14px;
+    width: 15px;
+    height: 15px;
+}
