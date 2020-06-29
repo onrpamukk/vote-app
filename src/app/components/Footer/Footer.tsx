@@ -10,7 +10,7 @@ export class Footer extends React.Component {
         <div className="container px-3">
           <div className="footercmp-info">
             <h6>
-              adasdasd
+              Copyright All Reserved 2020
             </h6>
           </div>
         </div>

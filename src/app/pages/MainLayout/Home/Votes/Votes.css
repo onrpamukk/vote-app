@@ -30,3 +30,9 @@
     margin-bottom: 0rem;
     font-size: 1.3rem;
 }
+
+.votecmp-container{
+    position: relative;
+    height:20em;
+    overflow: auto;
+}

@@ -14,13 +14,12 @@ import { Dispatch } from 'redux'
 import { Footer } from '../../../../components/Footer';
 import { Header } from '../../../../components/Header';
 import { TMService } from '../../../../services/toaster-message.service';
-import { paging as Pagination } from '../../../../components/Pagination'
-import { AMService } from '../../../../services/approval-modal.service';
 
 
 
 
 const mapStateToProps = ({ vote }: RootState) => ({ vote })
+
 const mapDispatchToProps = (dispatch: Dispatch<RootActions>) => ({
     toggleVote: (id: voteId) => dispatch(toggleVote(id)),
     incrementVote: (id: voteId) => dispatch(incrementVote(id)),
@@ -30,45 +29,38 @@ const mapDispatchToProps = (dispatch: Dispatch<RootActions>) => ({
 
 
 
-interface IPROPS {
-    postsPerPage:number
-    currentPage:number
-    votes:any[]
+interface ISTATE {
+    visible: number
 }
 
 
 
-class Votes extends React.Component<any, IPROPS> {
+class Votes extends React.Component<any, ISTATE> {
     constructor(props: any) {
         super(props);
         this.state = {
-            currentPage: 1,
-            postsPerPage:5,
-            votes:[]
+            visible: 5
         };
+        this.loadMore = this.loadMore.bind(this);
     }
-    
+
+    loadMore = () => {
+        this.setState((old) => {
+            return {
+                visible: old.visible + 5
+            }
+        })
+    }
 
     render() {
-        const { vote: { votes }, deleteVote, incrementVote, decrementVote,currentPage, postsPerPage, } = this.props;
-
-        const indexOfLastPost = currentPage * postsPerPage;
-        const indexOfFirstPost = indexOfLastPost - postsPerPage;
-        const currentPosts = votes.slice(indexOfFirstPost, indexOfLastPost);
-
-        const paginate = pagenum => this.setState({ currentPage: pagenum })
-
-        const nextPage = () => this.setState({ currentPage: currentPage + 1  })
-
-        const prevPage = () => this.setState({ currentPage: currentPage - 1  })
-
-
+        const { vote: { votes }, deleteVote, incrementVote, decrementVote } = this.props;
+        console.log(votes);
 
         return (
             <div className="homecmp-wrapper">
                 <Header />
                 <div className="d-flex flex-row justify-content-center mt-5">
-                    <div className="col-md-3 col-sm-3">
+                    <div className="col-lg-3 col-md-3 col-sm-3">
                         <Link to="/new-vote" className="d-flex flex-row createvotecmp-container">
                             <div className="createvotecmp-plus">
                                 <img src={require("../../../../assets/icons/plus.svg")} alt="" />
@@ -80,9 +72,9 @@ class Votes extends React.Component<any, IPROPS> {
                             </div>
                         </Link>
                         <hr className="solid"></hr>
-                        <div>
+                        <div className="votecmp-container">
                             {
-                                votes.map((vote: any) => (
+                                votes.slice(0, this.state.visible).map((vote: any) => (
                                     <VoteList
                                         key={vote.id}
                                         votePoints={vote.votePoints}
@@ -97,7 +89,9 @@ class Votes extends React.Component<any, IPROPS> {
                             {
                                 votes.length === 0 && <div className="alert alert-danger">Please add new vote!</div>
                             }
-                            <Pagination postsPerPage={postsPerPage} totalPosts={votes.length} paginate={paginate} nextPage={nextPage} prevPage={prevPage}  />
+                        </div>
+                        <div className="d-flex flex-row justify-content-center mt-4">
+                            <button className="btn btn-warning text-white" onClick={this.loadMore}>Load more</button>
                         </div>
                     </div>
                 </div>

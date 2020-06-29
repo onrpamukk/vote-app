@@ -39,9 +39,11 @@ interface DecrementVoteAction {
   payload: voteId
 }
 
+
+
 export type VoteActionTypes =
   CreateVoteAction |
   ToggleVoteAction |
   DeleteVoteAction |
   IncrementVoteAction |
-  DecrementVoteAction
+  DecrementVoteAction 

@@ -50,11 +50,6 @@ const showErrorMessage = (summary: string, detailTKeyword: string) => {
     showMessage({ severity: MESSAGE_TYPES.ERROR, summary, detail: detail === '' ? detailTKeyword : detail })
 };
 
-const showWarnMessageBE = (beErrorKey: string, beDefaultError: string) => {
-    if (!isGrowRendered)
-        return;
-};
-
 const showAlertMessage = (title: string,detail :string) => {
     let message = detail
     showMessage({ severity: MESSAGE_TYPES.INFO, summary: title, detail: message})
@@ -72,7 +67,6 @@ export const TMService = {
     showSuccessMessage,
     showInfoMessage,
     showWarnMessage,
-    showWarnMessageBE,
     showErrorMessage,
     clearAllMessages,
     showAlertMessage
